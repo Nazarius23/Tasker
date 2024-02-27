@@ -1,0 +1,141 @@
+.footer {
+	padding-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+	&__container {
+		display: grid;
+		grid-template-columns: 28.75% 62.678571%;
+		justify-content: space-between;
+		gap: 1.25rem;
+	}
+
+	&__info {
+	}
+
+	&__menu {
+	}
+
+	&__copy {
+		text-align: center;
+	}
+}
+.info-footer {
+	display: flex;
+	flex-direction: column;
+	gap: 1.875rem;
+	&__logo {
+	}
+
+	&__text {
+		line-height: 120%; /* 20/14 */
+	}
+
+	&__social {
+		display: flex;
+		gap: 1rem;
+	}
+}
+
+.social-info {
+	&__item {
+	}
+
+	&__link {
+		@media (min-width: 767.98px) {
+			& svg path {
+				transition: all 0.3s;
+			}
+			&:hover svg path {
+				fill: $TextColor;
+			}
+		}
+	}
+}
+
+.menu-footer {
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		column-gap: 0.9375rem;
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		color: $TextColor;
+		font-size: 1.125rem;
+		font-weight: 700;
+		line-height: 150%; /* 27/18 */
+		&:not(:last-child) {
+			margin-bottom: 0.9375rem;
+		}
+	}
+
+	&__link {
+		@extend %link;
+		&:not(:last-child) {
+			margin-bottom: 0.5625rem;
+		}
+	}
+}
+
+//  *=================================================================
+@media (max-width: 47.9988rem) {
+	.footer {
+		gap: calc(1.875rem + (80 - 30) * ((100vw - 20rem) / (767.98 - 320)));
+		&__container {
+			display: grid;
+			grid-template-columns: auto;
+			justify-content: space-between;
+			gap: 1.25rem;
+		}
+	}
+	.menu-footer {
+		&__list {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+			gap: 1.25rem;
+		}
+
+		&__items {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__title {
+			color: $TextColor;
+			font-size: 1.125rem;
+			font-weight: 700;
+			line-height: 150%; /* 27/18 */
+			&:not(:last-child) {
+				margin-bottom: 0.9375rem;
+			}
+		}
+
+		&__link {
+			font-size: 1.125rem;
+			font-weight: 500;
+			&:not(:last-child) {
+				margin-bottom: 0.5625rem;
+			}
+		}
+	}
+	.info-footer {
+		gap: calc(1.25rem + (30 - 20) * ((100vw - 20rem) / (767.98 - 320)));
+		&__logo {
+		}
+
+		&__text {
+			line-height: 120%; /* 20/14 */
+		}
+
+		&__social {
+			display: flex;
+			gap: 1rem;
+		}
+	}
+}

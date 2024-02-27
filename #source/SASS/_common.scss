@@ -1,0 +1,280 @@
+// *Tools ========================================================================
+$TextColor: rgb(48, 48, 48);
+$GrayTextColor: rgb(112, 112, 112);
+$blueColor: #0086d5;
+
+// ?font-size: calc(.625rem + (50 - 10) * ((100vw - 20rem) / (1330 - 320)));
+
+// *Tools ========================================================================
+
+// *Page Settings ================================================================
+
+body {
+	font-size: 1rem;
+	color: $TextColor;
+	font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+[class*='__container'] {
+	max-width: 71.875rem;
+	margin: 0 auto;
+	padding: 0 0.9375rem;
+}
+
+.page {
+	flex: 1 1 auto;
+}
+
+// *Components Settings ================================================================
+
+.block-header {
+	&--center {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		max-width: 32.875rem;
+		margin: 0 auto;
+	}
+	&__lable {
+		font-size: 0.875rem;
+		line-height: 1.25;
+		color: $blueColor;
+	}
+	&__title {
+	}
+
+	&__text {
+	}
+
+	&__form {
+	}
+}
+.form-block-header {
+	&__input {
+	}
+
+	&__button {
+	}
+}
+
+// *Components Settings ================================================================
+.title {
+	color: $TextColor;
+	font-size: 2.25rem; // !CALC
+	font-weight: 700;
+	line-height: 125%; // !FIX
+	&--big {
+		font-size: 3rem;
+		@media (max-width: 71.875rem) {
+			font-size: calc(2.125rem + (48 - 34) * ((100vw - 47.9988rem) / (1150 - 320)));
+		}
+		@media (max-width: 47.9988rem) {
+			font-size: 2.125rem;
+		}
+	}
+	&--medium {
+		font-size: 2.375rem;
+	}
+}
+
+.text {
+	line-height: 125%;
+	&--big {
+		font-size: 1.25rem;
+		color: $GrayTextColor;
+		@media (max-width: 71.875rem) {
+			font-size: calc(1.125rem + (20 - 18) * ((100vw - 47.9988rem) / (1150 - 320)));
+		}
+		@media (max-width: 47.9988rem) {
+			font-size: 1.125rem;
+		}
+	}
+	&--smoll {
+		font-size: 0.6875rem;
+	}
+}
+
+// *Components Settings ================================================================
+// *Settings ===========================================================================
+
+%link {
+	color: $GrayTextColor;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 150%;
+	position: relative;
+	transition: all 0.5s;
+	@media (min-width: 47.9988rem) {
+		&::before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0.0625rem;
+			bottom: 0;
+			left: 50%;
+			background-color: $GrayTextColor;
+			transition: all 0.5s;
+		}
+		&:hover::before {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+.button {
+	display: block;
+	color: rgb(255, 255, 255);
+	font-size: 0.875rem;
+	font-weight: 400;
+	border-radius: 0.3125rem;
+	&--blue {
+		background-color: rgb(0, 134, 213);
+		@media (min-width: 47.9988rem) {
+			transition: background-color 0.5s ease;
+			&:hover {
+				background-color: rgb(40, 176, 255);
+			}
+		}
+	}
+
+	&--big {
+		font-size: 1rem;
+		line-height: 1.063;
+		padding: 1rem 1.3125rem;
+	}
+	&--medium {
+		font-size: 0.875rem;
+		padding: 0.9375rem 2rem;
+		line-height: 1;
+	}
+}
+
+.input {
+	display: inline-flex;
+	flex: 1 1 auto;
+	font-size: 0.875rem;
+
+	color: $GrayTextColor;
+	padding: 0.8125rem 1rem;
+	border: 0.0625rem solid rgb(165, 165, 165);
+	border-radius: 0.3125rem;
+	&::placeholder {
+		font-size: 0.875rem;
+		opacity: 1;
+		transition: all 0.5s;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+	}
+	&--white {
+		color: rgb(255, 255, 255);
+		border: 0.0625rem solid rgb(255, 255, 255);
+	}
+}
+
+// *Settings ===========================================================================
+
+// *Animations =========================================================================
+
+._anim-sgow-title {
+	transform: translate(0, -100%);
+	opacity: 0;
+	transition: all 1.1s ease 0.2s;
+	& ._active,
+	._active & {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+	&:nth-child(1) {
+		transition-delay: 0.1s;
+	}
+	&:nth-child(2) {
+		transition-delay: 0.2s;
+	}
+	&:nth-child(3) {
+		transition-delay: 0.3s;
+	}
+}
+
+._anim-sgow-slide-left {
+	transform: translate(50%, 0);
+	opacity: 0;
+	transition: all 1.1s ease 0.2s;
+	& ._active,
+	._active & {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+	&:nth-child(1) {
+		transition-delay: 0.1s;
+	}
+	&:nth-child(2) {
+		transition-delay: 0.2s;
+	}
+	&:nth-child(3) {
+		transition-delay: 0.3s;
+	}
+	&:nth-child(4) {
+		transition-delay: 0.4s;
+	}
+}
+
+._anim-sgow-slide-right {
+	transform: translate(-50%, 0);
+	opacity: 0;
+	transition: all 1.1s ease 0.2s;
+	& ._active,
+	._active & {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+	&:nth-child(1) {
+		transition-delay: 0.1s;
+	}
+	&:nth-child(2) {
+		transition-delay: 0.2s;
+	}
+	&:nth-child(3) {
+		transition-delay: 0.3s;
+	}
+	&:nth-child(4) {
+		transition-delay: 0.4s;
+	}
+}
+
+._anim-sgow-opacity {
+	transform: translate(0, 35%);
+	opacity: 0;
+	transition: opacity 1.1s ease 0.2s;
+	& ._active,
+	._active & {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+	&:nth-child(1) {
+		transition-delay: 0.1s;
+	}
+	&:nth-child(2) {
+		transition-delay: 0.2s;
+	}
+	&:nth-child(3) {
+		transition-delay: 0.3s;
+	}
+	&:nth-child(4) {
+		transition-delay: 0.4s;
+	}
+	&:nth-child(5) {
+		transition-delay: 0.5s;
+	}
+	&:nth-child(6) {
+		transition-delay: 0.6s;
+	}
+}
